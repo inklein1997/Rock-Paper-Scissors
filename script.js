@@ -12,16 +12,19 @@ let userScore = [];
 let tieScore = [];
 
 
-onload = game();
+onload = startup();
 
-function game () {
+function startup () {
     var invite = confirm("Would you like to play rock paper scissors?");
     if (invite = true) {
         console.log("I would like to play");
+        game();
     } else {
         confirm("Sorry, you don't get a choice.  You HAVE to play!");
+        game();
     }
-
+}
+function game () {
     var choice = prompt('Type "R" for rock, "P" for paper and "s" for scissors');
     let random = options[Math.floor(Math.random()*3)];
     console.log("the computer chose " + random);
@@ -52,9 +55,12 @@ function game () {
     alert("I won " + userScore.length + " times!" + "The computer won " + computerScore.length + " times!" + "There have been " + tieScore.length + " ties!")
 
     var rematch = confirm("Would you like to play again?");
-    if (rematch == true) {
-        console.log("I would like to play again!")
-    }
+        if (rematch == true) {
+            console.log("I would like to play again!");
+            game();
+        } else {
+            alert("Thanks for Playing!");
+        }
 
         console.log("I won " + userScore.length + " times!");
         console.log("The computer won " + computerScore.length + " times!");
