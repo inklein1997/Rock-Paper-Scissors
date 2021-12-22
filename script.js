@@ -49,6 +49,8 @@ function game () {
             alert("The computer chose " + random + "! Congrats! You won!");
             userScore.push(1);  
         }
+    alert("I won " + userScore.length + " times!" + "The computer won " + computerScore.length + " times!" + "There have been " + tieScore.length + " ties!")
+
     var rematch = confirm("Would you like to play again?");
     if (rematch == true) {
         console.log("I would like to play again!")
