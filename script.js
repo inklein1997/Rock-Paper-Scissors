@@ -25,14 +25,18 @@ function startup () {
     }
 }
 function game () {
-    var choice = prompt('Type "R" for rock, "P" for paper and "s" for scissors');
+    var choice = prompt('Type "R" for rock, "P" for paper and "S" for scissors');
+    if (choice != "R" && choice != "S" && choice != "P") {
+        alert("Trying to break the rules, huh?");
+        game();
+    }
     let random = options[Math.floor(Math.random()*3)];
     console.log("the computer chose " + random);
     console.log("you chose " + choice);
 
     if (choice == random) {
         alert("The computer chose " + random + "!  Its a tie!");
-
+        tieScore.push(1);
         } else if (choice == "R" && random == "P") {
             alert("The computer chose " + random + "!  The computer won!");
             computerScore.push(1);
@@ -61,8 +65,8 @@ function game () {
         } else {
             alert("Thanks for Playing!");
         }
+    return }
 
-        console.log("I won " + userScore.length + " times!");
-        console.log("The computer won " + computerScore.length + " times!");
-        console.log("There have been " + tieScore.length + " ties!");
-    }
+    console.log("I won " + userScore.length + " times!");
+    console.log("The computer won " + computerScore.length + " times!");
+    console.log("There have been " + tieScore.length + " ties!");
