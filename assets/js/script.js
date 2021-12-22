@@ -16,19 +16,21 @@ onload = startup();
 
 function startup () {
     var invite = confirm("Would you like to play rock paper scissors?");
-    if (invite = true) {
-        console.log("I would like to play");
-        game();
+    if (invite == false) {
+        alert("Oh.. ok...");
+        console.log("I don't want to play")
     } else {
-        confirm("Sorry, you don't get a choice.  You HAVE to play!");
+        console.log("I would like to play");
         game();
     }
 }
 function game () {
     var choice = prompt('Type "R" for rock, "P" for paper and "S" for scissors');
+    choice = choice.toUpperCase();
     if (choice != "R" && choice != "S" && choice != "P") {
-        alert("Trying to break the rules, huh?");
+        alert("Invalid Move!");
         game();
+        return;
     }
     let random = options[Math.floor(Math.random()*3)];
     console.log("the computer chose " + random);
@@ -56,7 +58,8 @@ function game () {
             alert("The computer chose " + random + "! Congrats! You won!");
             userScore.push(1);  
         }
-    alert("I won " + userScore.length + " times!" + "The computer won " + computerScore.length + " times!" + "There have been " + tieScore.length + " ties!")
+    
+    alert("Scoreboard:" + "\n" + "I won " + userScore.length + " times!" + "\n" + "The computer won " + computerScore.length + " times!" + "\n" + "There have been " + tieScore.length + " ties!");
 
     var rematch = confirm("Would you like to play again?");
         if (rematch == true) {
@@ -65,7 +68,7 @@ function game () {
         } else {
             alert("Thanks for Playing!");
         }
-    return }
+    }
 
     console.log("I won " + userScore.length + " times!");
     console.log("The computer won " + computerScore.length + " times!");
